@@ -67,7 +67,7 @@ function tienenMismaLongitud(str1, str2) {
   // Devuelve "true" si las dos strings tienen la misma longitud
   // De lo contrario, devuelve "false"
   // Tu código:
-  return str1.length == str2.lenght;
+  return str1.length == str2.length;
 }
 
 function menosQueNoventa(num) {
@@ -214,7 +214,7 @@ function esVocal(letra){
   // Si no es vocal, tambien debe devolver "Dato incorrecto".
   //Escribe tu código aquí
   var ret;
-  if (typeof letra === "string"){
+  if (typeof letra !== "string"){
     ret = "Dato incorrecto";
   }else{
     switch(letra.toLowerCase()){
