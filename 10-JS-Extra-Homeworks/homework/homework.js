@@ -10,6 +10,7 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+    return Object.entries(objeto);
 }
 
 
@@ -18,6 +19,7 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  return Array.from(string).reduce((acc, ele) => {acc[ele] = (acc[ele]|| 0) + 1; return acc}, {})
 }
 
 
@@ -26,6 +28,16 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var mayus = []
+  var minus = []
+  Array.from(s).forEach((v) => {
+    if (v.toLowerCase() == v){
+      minus.push(v)
+    }else{
+      mayus.push(v)
+    }
+  })
+  return mayus.concat(minus).join("")
 }
 
 
@@ -35,6 +47,7 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  return str.split(" ").map((v) => Array.from(v).reverse().join("")).join(" ")
 } 
 
 
@@ -43,6 +56,13 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  var strN = numero + "";
+  var reve = Array.from(strN).reverse().join("")
+  if (strN == reve){
+    return "Es capicua"
+  }else{
+    return "No es capicua"
+  }
 }
 
 
@@ -50,6 +70,7 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  return cadena.replace(/[abc]/g, '')
 }
 
 
@@ -57,6 +78,7 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  return arr.sort((a, b) => {return a.length - b.length})
 }
 
 
@@ -65,7 +87,8 @@ function buscoInterseccion(arreglo1, arreglo2){
   //retornar un nuevo array con la intersección de ambos elementos. (Ej: [4,2,3] unión [1,3,4] = [3,4].
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
-  //Escribe tu código aquí  
+  //Escribe tu código aquí
+  return arreglo1.filter((v) => arreglo2.includes(v))
 }
 
 
